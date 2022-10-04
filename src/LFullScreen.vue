@@ -30,18 +30,18 @@ watch(mapRef, async (map) => {
 });
 </script>
 
-<style scoped>
-.fullscreen-icon {
+<style>
+.leaflet-fullscreen-icon {
   background-image: url("../assets/icon-fullscreen.svg");
   background-size: 26px 52px;
 }
-.fullscreen-icon.leaflet-fullscreen-on {
+.leaflet-fullscreen-icon.leaflet-fullscreen-on {
   background-position: 0 -26px;
 }
-.leaflet-touch .fullscreen-icon {
+.leaflet-touch .leaflet-fullscreen-icon {
   background-position: 2px 2px;
 }
-.leaflet-touch .fullscreen-icon.leaflet-fullscreen-on {
+.leaflet-touch .leaflet-fullscreen-icon.leaflet-fullscreen-on {
   background-position: 2px -24px;
 }
 /* one selector per rule as explained here : http://www.sitepoint.com/html5-full-screen-api/ */

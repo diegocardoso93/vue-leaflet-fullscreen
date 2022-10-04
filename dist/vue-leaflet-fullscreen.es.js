@@ -2,7 +2,7 @@ import { toRefs as a, inject as f, watch as h, openBlock as m, createElementBloc
 /*!
  * leaflet.fullscreen
  */
-function _(e, r) {
+function F(e, r) {
   return e.Control.FullScreen = e.Control.extend({
     options: {
       position: "bottomright",
@@ -14,15 +14,15 @@ function _(e, r) {
     },
     _screenfull: r,
     onAdd: function(n) {
-      var o = "leaflet-control-zoom-fullscreen", t, s = "";
-      return n.zoomControl && !this.options.forceSeparateButton ? t = n.zoomControl._container : t = e.DomUtil.create("div", "leaflet-bar"), this.options.content ? s = this.options.content : o += " fullscreen-icon", this._createButton(
+      var o = "leaflet-control-zoom-fullscreen", l, s = "";
+      return n.zoomControl && !this.options.forceSeparateButton ? l = n.zoomControl._container : l = e.DomUtil.create("div", "leaflet-bar"), this.options.content ? s = this.options.content : o += " leaflet-fullscreen-icon", this._createButton(
         this.options.title,
         o,
         s,
-        t,
+        l,
         this.toggleFullScreen,
         this
-      ), this._map.fullscreenControl = this, this._map.on("enterFullscreen exitFullscreen", this._toggleState, this), t;
+      ), this._map.fullscreenControl = this, this._map.on("enterFullscreen exitFullscreen", this._toggleState, this), l;
     },
     onRemove: function() {
       e.DomEvent.off(this.link, "click", e.DomEvent.stop).off(
@@ -50,11 +50,11 @@ function _(e, r) {
         this
       ));
     },
-    _createButton: function(n, o, t, s, l, i) {
-      return this.link = e.DomUtil.create("a", o, s), this.link.href = "#", this.link.title = n, this.link.innerHTML = t, this.link.setAttribute("role", "button"), this.link.setAttribute("aria-label", n), e.DomEvent.disableClickPropagation(s), e.DomEvent.on(this.link, "click", e.DomEvent.stop).on(
+    _createButton: function(n, o, l, s, t, i) {
+      return this.link = e.DomUtil.create("a", o, s), this.link.href = "#", this.link.title = n, this.link.innerHTML = l, this.link.setAttribute("role", "button"), this.link.setAttribute("aria-label", n), e.DomEvent.disableClickPropagation(s), e.DomEvent.on(this.link, "click", e.DomEvent.stop).on(
         this.link,
         "click",
-        l,
+        t,
         i
       ), this._screenfull.isEnabled && (e.DomEvent.on(
         s,
@@ -117,7 +117,7 @@ function _(e, r) {
  */
 function p() {
   var e = typeof window < "u" && typeof window.document < "u" ? window.document : {}, r = function() {
-    for (var t, s = [
+    for (var l, s = [
       [
         "requestFullscreen",
         "exitFullscreen",
@@ -158,10 +158,10 @@ function p() {
         "MSFullscreenChange",
         "MSFullscreenError"
       ]
-    ], l = 0, i = s.length, c = {}; l < i; l++)
-      if (t = s[l], t && t[1] in e) {
-        for (l = 0; l < t.length; l++)
-          c[s[0][l]] = t[l];
+    ], t = 0, i = s.length, c = {}; t < i; t++)
+      if (l = s[t], l && l[1] in e) {
+        for (t = 0; t < l.length; t++)
+          c[s[0][t]] = l[t];
         return c;
       }
     return !1;
@@ -169,50 +169,50 @@ function p() {
     change: r.fullscreenchange,
     error: r.fullscreenerror
   }, o = {
-    request: function(t, s) {
+    request: function(l, s) {
       return new Promise(
-        function(l, i) {
+        function(t, i) {
           var c = function() {
-            this.off("change", c), l();
+            this.off("change", c), t();
           }.bind(this);
-          this.on("change", c), t = t || e.documentElement;
-          var u = t[r.requestFullscreen](s);
+          this.on("change", c), l = l || e.documentElement;
+          var u = l[r.requestFullscreen](s);
           u instanceof Promise && u.then(c).catch(i);
         }.bind(this)
       );
     },
     exit: function() {
       return new Promise(
-        function(t, s) {
+        function(l, s) {
           if (!this.isFullscreen) {
-            t();
+            l();
             return;
           }
-          var l = function() {
-            this.off("change", l), t();
+          var t = function() {
+            this.off("change", t), l();
           }.bind(this);
-          this.on("change", l);
+          this.on("change", t);
           var i = e[r.exitFullscreen]();
-          i instanceof Promise && i.then(l).catch(s);
+          i instanceof Promise && i.then(t).catch(s);
         }.bind(this)
       );
     },
-    toggle: function(t, s) {
-      return this.isFullscreen ? this.exit() : this.request(t, s);
+    toggle: function(l, s) {
+      return this.isFullscreen ? this.exit() : this.request(l, s);
     },
-    onchange: function(t) {
-      this.on("change", t);
+    onchange: function(l) {
+      this.on("change", l);
     },
-    onerror: function(t) {
-      this.on("error", t);
+    onerror: function(l) {
+      this.on("error", l);
     },
-    on: function(t, s) {
-      var l = n[t];
-      l && e.addEventListener(l, s, !1);
+    on: function(l, s) {
+      var t = n[l];
+      t && e.addEventListener(t, s, !1);
     },
-    off: function(t, s) {
-      var l = n[t];
-      l && e.removeEventListener(l, s, !1);
+    off: function(l, s) {
+      var t = n[l];
+      t && e.removeEventListener(t, s, !1);
     },
     raw: r
   };
@@ -236,26 +236,21 @@ function p() {
     }
   }), o) : { isEnabled: !1 };
 }
-const F = (e, r) => {
-  const n = e.__vccOpts || e;
-  for (const [o, t] of r)
-    n[o] = t;
-  return n;
-}, g = {
+const g = {
   __name: "LFullScreen",
   props: ["mapRef", "position"],
   setup(e) {
-    const r = e, n = typeof self == "object" && self.self === self && self || typeof global == "object" && global.global === global && global || void 0, { mapRef: o, position: t } = a(r), s = f("useGlobalLeaflet");
-    return h(o, async (l) => {
+    const r = e, n = typeof self == "object" && self.self === self && self || typeof global == "object" && global.global === global && global || void 0, { mapRef: o, position: l } = a(r), s = f("useGlobalLeaflet");
+    return h(o, async (t) => {
       if (o.value) {
         const i = s ? n.L : await import("leaflet/dist/leaflet-src.esm");
-        _(i, p()), new i.Control.FullScreen({ position: t.value || "topleft" }).addTo(
-          l
+        F(i, p()), new i.Control.FullScreen({ position: l.value || "topleft" }).addTo(
+          t
         );
       }
-    }), (l, i) => (m(), d("span"));
+    }), (t, i) => (m(), d("span"));
   }
-}, E = /* @__PURE__ */ F(g, [["__scopeId", "data-v-1d783e2a"]]);
+};
 export {
-  E as default
+  g as default
 };

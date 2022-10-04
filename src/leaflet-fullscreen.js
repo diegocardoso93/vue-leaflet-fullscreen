@@ -30,7 +30,7 @@ export function loadLeafletFullScreen(leaflet, screenfull) {
       if (this.options.content) {
         content = this.options.content;
       } else {
-        className += " fullscreen-icon";
+        className += " leaflet-fullscreen-icon";
       }
 
       this._createButton(

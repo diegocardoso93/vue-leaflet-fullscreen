@@ -1,6 +1,6 @@
 {
   "name": "vue-leaflet-fullscreen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "FullScreen control for vue-leaflet",
   "main": "./dist/vue-leaflet-fullscreen.umd.js",
   "module": "./dist/vue-leaflet-fullscreen.es.js",
